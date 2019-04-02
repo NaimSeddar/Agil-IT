@@ -28,7 +28,7 @@ class EntrepriseController extends Controller
             ]);
 
         $input = $request->only(["nom", "siret", "nomPDG","siteP","batimentP","bureau","telephone"]);
-        DB::table("entreprise")->update([
+        DB::table("entreprise")->insert([
             "nom" => $input["nom"],
             "siret" => $input["siret"],
             "nomPDG" => $input["nomPDG"],
