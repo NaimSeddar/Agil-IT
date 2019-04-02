@@ -300,7 +300,8 @@
         <br>
 
         <label for="contactUrgence">Personne à contacter en cas d'urgence: </label>
-        <input type="text" class="form-control col-md-4" id="contactUrgence">
+        <select class="form-control col-md-4">
+        </select>
 
         <br>
 
