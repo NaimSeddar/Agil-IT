@@ -18,7 +18,7 @@ class ContactEntreprise extends Migration
             $table->string('nomNaissance');
             $table->string('nom');
             $table->string('prenom');
-            $table->string('dateNaissance');
+            $table->date('dateNaissance');
             $table->string('mailPro');
             $table->string('mailPerso');
             $table->string('telephone');
@@ -29,8 +29,8 @@ class ContactEntreprise extends Migration
             $table->integer('idPersContact');
             $table->integer('idEntreprise');
             $table->string('typeContrat');
-            $table->string('dateDebutContrat');
-            $table->string('dateFinContrat');
+            $table->date('dateDebutContrat');
+            $table->date('dateFinContrat');
             $table->string('Bureau');
             $table->string('telBureau');
             $table->boolean('valider');

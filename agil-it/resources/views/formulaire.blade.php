@@ -2,6 +2,16 @@
 
 @section('content')
 
+    @if ($errors->any())
+        <div class="alert alert-danger"  style="margin-top: 2rem">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
 
     <h1>FORMULAIRE D'ENREGISTREMENT</h1>
     <form method='POST' action="{{route('send')}}">
@@ -10,7 +20,7 @@
         <h2>Identité</h2>
 
         <label for="civilite">Civilité: </label>
-        <select class="form-control col-md-4" id="civilite">
+        <select class="form-control col-md-4" name="civilite" id="civilite">
             <option value="Mme">Mme</option>
             <option value="M">M</option>
         </select>
@@ -18,28 +28,27 @@
         <br>
 
         <label for="nomNaissance">Nom de naissance: </label>
-        <input type="text" class="form-control col-md-4" id="nomNaissance">
+        <input type="text" class="form-control col-md-4" name="nomNaissance" id="nomNaissance">
 
         <br>
 
         <label for="nom">Nom: </label>
-        <input type="text" class="form-control col-md-4" id="nom">
+        <input type="text" class="form-control col-md-4" id="nom" name="nom">
 
         <br>
         <label for="prenom">Prenom: </label>
-        <input type="text" class="form-control col-md-4" id="prenom">
+        <input type="text" class="form-control col-md-4" id="prenom" name="prenom">
 
         <br>
 
         <label for="dateNaissance">Date de naissance: </label>
-        <input type="date" class="form-control col-md-4" id="dateNaissance"/>
+        <input type="date" class="form-control col-md-4" id="dateNaissance" name="dateNaissance">
 
         <br>
 
         <label for="nationalite">Nationalité: </label>
-        <select class="form-control col-md-4" id="nationalite">
+        <select class="form-control col-md-4" name="nationalite" id="nationalite">
             <option value="  " selected>(Veuillez selectionner un pays)</option>
-            <option value="--">none</option>
             <option value="AF">Afghanistan</option>
             <option value="AL">Albania</option>
             <option value="DZ">Algeria</option>
@@ -286,64 +295,64 @@
         <h2>Contact</h2>
 
         <label for="mailPro">Adresse mail professionnelle: </label>
-        <input type="text" class="form-control col-md-4" id="mailPro">
+        <input type="text" class="form-control col-md-4" name="mailPro" id="mailPro">
 
         <br>
 
         <label for="NumTelPerso">Numéro de téléphone personnel: </label>
-        <input type="text" class="form-control col-md-4" id="NumTelPerso">
+        <input type="text" class="form-control col-md-4" name="NumTelPerso" id="NumTelPerso">
 
         <br>
 
         <label for="mailPerso">Adresse mail personnelle: </label>
-        <input type="email" class="form-control col-md-4" id="mailPerso">
+        <input type="email" class="form-control col-md-4" name="mailPerso" id="mailPerso">
 
         <br>
 
         <label for="nomContact">Nom du contact d'urgence: </label>
-        <input type="text" class="form-control col-md-4" id="nomContact">
+        <input type="text" class="form-control col-md-4" name="nomContact" id="nomContact">
 
         <br>
 
         <label for="prenomContact">Prenom du contact d'urgence: </label>
-        <input type="text" class="form-control col-md-4" id="prenomContact">
+        <input type="text" class="form-control col-md-4" name="prenomContact" id="prenomContact">
 
         <br>
 
         <label for="telContact">Coordonnées téléphoniques de la personne à contacter en cas d'urgence: </label>
-        <input type="tel" class="form-control col-md-4" id="telContact">
+        <input type="tel" class="form-control col-md-4" name="telContact" id="telContact">
 
         <br>
 
         <h2>Informations administratives</h2>
 
         <label for="statut">Statut: </label>
-        <input type="text" class="form-control col-md-4" id="statut">
+        <input type="text" class="form-control col-md-4" name="statut" id="statut">
 
         <br>
 
         <label for="categEmployeur">Catégorie de l'employeur: </label>
-        <input type="text" class="form-control col-md-4" id="categEmployeur">
+        <input type="text" class="form-control col-md-4" name="categEmployeur" id="categEmployeur">
 
         <br>
 
         <label for="nomEmployeur">nom de l'employeur: </label>
-        <input type="text" class="form-control col-md-4" id="nomEmployeur">
+        <input type="text" class="form-control col-md-4" name="nomEmployeur" id="nomEmployeur">
 
         <br>
 
         <label for="debutContrat">Date de début de contrat: </label>
-        <input type="date" class="form-control col-md-4" id="debutContrat">
+        <input type="date" class="form-control col-md-4" id="debutContrat" name="debutContrat">
 
         <br>
 
         <label for="finContrat">Date de début de contrat: (Ne pas renseigner si CDI) </label>
-        <input type="date" class="form-control col-md-4" id="finContrat">
+        <input type="date" class="form-control col-md-4" id="finContrat" name="finContrat">
 
         <br>
 
         <label for="entreprise">Entreprise ou équipe: </label>
-        <select class="form-control col-md-4" id="entreprise">
+        <select class="form-control col-md-4" name="entreprise" id="entreprise">
             @foreach($entreprises as $entreprise)
                 <option value="{{$entreprise}}">{{$entreprise}}</option>
             @endforeach
@@ -355,12 +364,12 @@
 
 
         <label for="Bureau">Bureau (sur le plateau): </label>
-        <input type="text" class="form-control col-md-4" id="Bureau">
+        <input type="text" class="form-control col-md-4" name="Bureau" id="Bureau">
 
         <br>
 
         <label for="NumTelPlateau">Numéro de tel (sur le plateau): </label>
-        <input type="tel" class="form-control col-md-4" id="NumTelPlateau">
+        <input type="tel" class="form-control col-md-4" name="NumTelPlateau" id="NumTelPlateau">
 
 
         <br>

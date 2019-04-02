@@ -15,28 +15,28 @@ class FormulaireController extends Controller
     function send(Request $request){
         $this->validate($request, [
             'civilite' => ['required'],
-            'nomNaissance' => ['required','string','max:255'],
-            'nom' => ['required','string','max:255'],
-            'prenom' => ['required','string','max:255'],
-            'dateNaissance' => ['required','date','before:today'],
+            'nomNaissance' => ['required'],
+            'nom' => ['required'],
+            'prenom' => ['required'],
+            'dateNaissance' => ['required','date'],
             'nationalite' => ['required'],
 
-            'mailPro' =>['required', 'email', 'max:255'],
-            'NumTelPerso' => ['required', 'string', 'max:100'],
-            'mailPerso' => ['required', 'email', 'max:255'],
+            'mailPro' =>['required'],
+            'NumTelPerso' => ['required'],
+            'mailPerso' => ['required'],
 
-            'nomContact' => ['required','string','max:255'],
-            'prenomContact' => ['required','string','max:255'],
-            'telContact' => ['required', 'string','max:100'],
+            'nomContact' => ['required'],
+            'prenomContact' => ['required'],
+            'telContact' => ['required'],
 
             'statut' => ['required'],
             'categEmployeur' => ['required'],
-            'nomEmployeur' => ['required','string','max:255'],
+            'nomEmployeur' => ['required'],
             'debutContrat' => ['required','date'],
-            'finContrat' => ['required', 'date', 'after:debutContrat'],
+            'finContrat' => ['required','date'],
             'entreprise' => ['required'],
             'Bureau' => ['required'],
-            'NumTelPlateau' => ['required', 'string', 'max:100'],
+            'NumTelPlateau' => ['required'],
         ]);
 
         $input=$request->only(
@@ -60,8 +60,9 @@ class FormulaireController extends Controller
                 "finContrat",
                 "entreprise",
                 "Bureau",
-                "NumTelPlateau",
+                "NumTelPlateau"
             ]);
+
 
         $contact = DB::table('personnesPrevenirEnCasUrgence')->where('nom',$input["nomContact"])->count();
         if($contact == 0){
@@ -72,8 +73,8 @@ class FormulaireController extends Controller
             ]);
         }
 
-        $contactId = DB::table('personnesPrevenirEnCasUrgence')->select('id')->where('nom',$input['nomContact'])->first();
-        $entrepriseId = DB::table('entreprise')->select('id')->where('nom',$input['entreprise'])->first();
+        $contactId = DB::table('personnesPrevenirEnCasUrgence')->select('id')->where('nom',$input['nomContact'])->limit(1);
+        $entrepriseId = DB::table('entreprise')->select('id')->where('nom',$input['entreprise'])->limit(1);
         $typeContrat = null;
 
         if(isset($input['finContrat'])){
@@ -82,27 +83,34 @@ class FormulaireController extends Controller
             $typeContrat = "CDI";
         }
 
-        DB::table('contact_entreprise')->insert([
-            'nomNaissance' => $input['nomNaissance'],
-            'nom' => $input['nom'],
-            'prenom' => $input['prenom'],
+        // $data = array();
+
+        $values = [
+            'nomNaissance' => '\''.$input['nomNaissance'].'\'',
+            'nom' => '\''.$input['nom'].'\'',
+            'prenom' => '\''.$input['prenom'].'\'',
             'dateNaissance' => $input['dateNaissance'],
-            'mailPro' => $input['mailPro'],
-            'mailPerso' => $input['mailPerso'],
-            'telephone' => $input['NumTelPerso'],
-            'civilite' => $input['civilite'],
-            'nationalite' => $input['nationalite'],
-            'statusEntreprise' => $input['status'],
-            'categEmployeur' => $input['categEmployeur'],
-            'idPersContact' => $contactId,
-            'idEntreprise' => $entrepriseId,
-            'typeContrat' => $typeContrat,
+            'mailPro' => '\''.$input['mailPro'].'\'',
+            'mailPerso' => '\''.$input['mailPerso'].'\'',
+            'telephone' => '\''.$input['NumTelPerso'].'\'',
+            'civilite' => '\''.$input['civilite'].'\'',
+            'nationalite' => '\''.$input['nationalite'].'\'',
+            'statusEntreprise' => '\''.$input['statut'].'\'',
+            'categEmployeur' => '\''.$input['categEmployeur'].'\'',
+            'idPersContact' => 1,
+            'idEntreprise' => 1,
+            'typeContrat' => '\''.$typeContrat.'\'',
             'dateDebutContrat' => $input['debutContrat'],
             'dateFinContrat' => $input['finContrat'],
-            'Bureau' => $input['Bureau'],
+            'Bureau' => '\''.$input['Bureau'].'\'',
             'telBureau' => $input['NumTelPlateau'],
-            'valider' => false
-        ]);
+            'valider' => 0,
+            ];
+        //$data = $values;
+
+        $values= (array)json_decode(json_encode($values), true);
+
+        DB::table('contact_entreprise')->insert($values);
 
         return redirect(route('welcome'));
     }
