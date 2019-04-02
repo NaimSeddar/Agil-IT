@@ -25,6 +25,7 @@ class ContactEntreprise extends Migration
             $table->string('civilite');
             $table->string('nationalite');
             $table->string('statusEntreprise');
+            $table->string('categEmployeur');
             $table->string('idPersContact');
             $table->integer('idEntreprise');
             $table->string('typeContrat');
