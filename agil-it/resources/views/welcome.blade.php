@@ -19,9 +19,9 @@
     </header>
 
     <!-- Page Content -->
-    <section class="py-5" id="EnSavoirPlus">
+    <section class="py-5">
         <div class="container">
-            <h2>En savoir plus sur le CoopWorking.</h2> <br>
+            <h2 id="EnSavoirPlus">En savoir plus sur le CoopWorking.</h2> <br>
             <h4><u>Présentation :</u> </h4> <br>
             <p class="rawText">
                 Depuis quelques années, les pouvoirs publics souhaitent encourager et développer l’esprit d’entreprise auprès des jeunes. Cet esprit d’entreprise se développe, notamment à la faveur du développement des nouvelles technologies. Mais pour leur vie au travail, les jeunes sont aussi en recherche d’autonomie, d’équilibre entre vie professionnelle et personnelle, de reconnaissance, de projets qui fassent sens dans un monde en mutation. D’où leur attirance croissante pour l’entrepreneuriat coopératif fondé sur la mise en commun des énergies pour vivre un projet partagé.
@@ -29,7 +29,8 @@
             <p class="rawText">
                 Le coopworking permet à des petites entreprises (TPE/PME) de se regrouper pour pouvoir bénéficier d'un environnement bénéfique à leur développement : haut débit, bar à sieste, véhicules décarbonés et une animation permanente orientée sur le développement durable et la RSE (responsabilité sociétale). Installée dans un quartier prioritaire dans l'agglomération nantaise, au Sillon de Bretagne, à Saint-Herblain, elle intégrera aussi des projets de proximité du quartier pour mieux les faire émerger.
             </p>
-            <img src="/public/images/teamworking.jpg">
+            <h6 align="center"> A vous de jouer !</h6>
+            <img class="img-fluid" src="{{asset('images/teamworking.jpg')}}">
         </div>
     </section>
 
