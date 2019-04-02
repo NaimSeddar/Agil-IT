@@ -4,10 +4,19 @@
         <img src="/public/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Univers7
     </a>
-
+    @guest
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('formulaire') }}">Formulaire</a>
+            <a class="nav-link" href="{{ route('login') }}">Login</a>
         </li>
     </ul>
+        @else
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{route('logout')}}"
+                   onclick="event.preventDefault();document.getElementById('logout-form').submit()">Déconnexion</a>
+            </li>
+            <form action="{{route('logout')}}" method="post" style="display: none;" id="logout-form">@csrf</form>
+            @endguest
+        </ul>
 </nav>
