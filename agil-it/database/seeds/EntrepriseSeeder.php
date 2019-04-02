@@ -16,6 +16,7 @@ class EntrepriseSeeder extends Seeder
             'siret' => 'fldshfljs',
             'siteP' => 'rslkgfsklm',
             'batimentP' => 'dhklsfhklsf',
+            'valider' => false,
             ]);
 
     }
