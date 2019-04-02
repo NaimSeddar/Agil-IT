@@ -29,8 +29,8 @@ class FormulaireController extends Controller
             'prenomContact' => ['required','string','max:255'],
             'telContact' => ['required', 'string','max:100'],
 
-            'Statut' => ['required'],
-            'categEmployeur' => ['required',],
+            'statut' => ['required'],
+            'categEmployeur' => ['required'],
             'nomEmployeur' => ['required','string','max:255'],
             'debutContrat' => ['required','date'],
             'finContrat' => ['required', 'date', 'after:debutContrat'],
@@ -53,7 +53,7 @@ class FormulaireController extends Controller
                 "nomContact",
                 "prenomContact",
                 "telContact",
-                "status",
+                "statut",
                 "categEmployeur",
                 "nomEmployeur",
                 "debutContrat",
@@ -101,7 +101,9 @@ class FormulaireController extends Controller
             'dateFinContrat' => $input['finContrat'],
             'Bureau' => $input['Bureau'],
             'telBureau' => $input['NumTelPlateau'],
-            'valider' => false,
+            'valider' => false
         ]);
+
+        return redirect(route('welcome'));
     }
 }

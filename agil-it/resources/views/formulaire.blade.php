@@ -286,12 +286,12 @@
         <h2>Contact</h2>
 
         <label for="mailPro">Adresse mail professionnelle: </label>
-        <input type="email" class="form-control col-md-4" id="mailPro">
+        <input type="text" class="form-control col-md-4" id="mailPro">
 
         <br>
 
         <label for="NumTelPerso">Numéro de téléphone personnel: </label>
-        <input type="tel" class="form-control col-md-4" id="NumTelPerso">
+        <input type="text" class="form-control col-md-4" id="NumTelPerso">
 
         <br>
 
@@ -317,8 +317,8 @@
 
         <h2>Informations administratives</h2>
 
-        <label for="Statut">Statut: </label>
-        <input type="text" class="form-control col-md-4" id="Statut">
+        <label for="statut">Statut: </label>
+        <input type="text" class="form-control col-md-4" id="statut">
 
         <br>
 
