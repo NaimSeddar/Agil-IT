@@ -12,13 +12,13 @@
 @yield('css')
 </head>
 <body>
-@include('layout.header')
+@include('layouts.header')
 <div class="mt-5">
     <br>
     @yield('content')
 </div>
 
-@include('layout.footer')
+@include('layouts.footer')
 
 @yield('javaScript')
 </body>

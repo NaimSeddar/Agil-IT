@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/formulaire', 'FormulaireController@index')->name('formulaire');
+
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::post('/send', 'FormulaireController@send')->name('send');
