@@ -14,11 +14,12 @@
 Auth::routes();
 
 Route::get('/formulaire', 'FormulaireController@index')->name('formulaire');
+Route::post('/send', 'FormulaireController@send')->name('send');
 
 Route::get('/entreprise/create','EntrepriseController@createEntreprise')->name('formulaireEntreprise');
 Route::post('/entreprise/enregistrer','EntrepriseController@enregistrerEntreprise')->name('enregistrerEntreprise');
 Route::get('/', 'AccueilController@index')->name('welcome');
 
-Route::post('/send', 'FormulaireController@send')->name('send');
+
 
 Route::get('/home', 'HomeController@index')->name('home');

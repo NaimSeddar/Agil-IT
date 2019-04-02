@@ -1,13 +1,13 @@
-<?
+<?php
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FormulaireController extends Controller
 {
     function index(){
-
         $entreprise = DB::table('entreprise')->pluck('nom');
         return view('formulaire',['entreprises' => $entreprise]);
     }
