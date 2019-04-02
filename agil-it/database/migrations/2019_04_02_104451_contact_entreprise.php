@@ -31,6 +31,7 @@ class ContactEntreprise extends Migration
             $table->string('typeContrat');
             $table->string('dateDebutContrat');
             $table->string('dateFinContrat');
+            $table->boolean('valider');
             $table->timestamps();
 
         });

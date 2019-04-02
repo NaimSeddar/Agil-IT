@@ -20,6 +20,7 @@ class CreateEntreprise extends Migration
             $table->string('siret');
             $table->string('siteP');
             $table->string('batimentP');
+            $table->boolean('valider');
             $table->timestamps();
 
         });
