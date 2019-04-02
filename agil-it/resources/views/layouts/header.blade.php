@@ -1,7 +1,13 @@
 <!-- Image and text -->
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
-        <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Bootstrap
+        <img src="/public/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Univers7
     </a>
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('formulaire') }}">Formulaire</a>
+        </li>
+    </ul>
 </nav>
