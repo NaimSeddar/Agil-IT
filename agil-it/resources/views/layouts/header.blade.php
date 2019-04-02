@@ -4,18 +4,19 @@
         <img src="/public/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Univers7
     </a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('afficherInscriptions')}}">Tableau de bord</a>
+            </li>
+        </ul>
     @guest
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">Login</a>
             </li>
         </ul>
-    @else
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('afficherInscriptions')}}">Tableau de bord</a>
-            </li>
-        </ul>
+    @endguest
+    @auth
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{route('logout')}}"
@@ -23,5 +24,5 @@
             </li>
             <form action="{{route('logout')}}" method="post" style="display: none;" id="logout-form">@csrf</form>
         </ul>
-    @endguest
+    @endauth
 </nav>

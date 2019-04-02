@@ -23,7 +23,7 @@ Route::get('/', 'AccueilController@index')->name('welcome');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/contact/enregistrerValidation/{id}','InscriptionController@valider')->name('validerContact');
+Route::get('/contact/enregistrerSuppression/{id}','InscriptionController@devalider')->name('devaliderContact');
 Route::get('/contacts','InscriptionController@afficherInscriptions')->name('afficherInscriptions');
-Route::post('/contact/enregistrerModif/{id}','InscriptionController@valider')->name('validerContact');
-Route::post('/contact/enregistrerModif/{id}','InscriptionController@devalider')->name('devaliderContact');
+

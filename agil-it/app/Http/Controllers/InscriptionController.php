@@ -16,24 +16,27 @@ class InscriptionController extends Controller
 
     public function afficherInscriptions()
     {
-        $inscriptions = DB::table('contact_entreprise')->select('*');
+        $inscriptions = DB::table('contact_entreprise')->get();
         return view('inscription/inscriptions', ['inscriptions' => $inscriptions]);
+
+
     }
 
 
     public function devalider($id)
     {
-        $verifier = 0;
-        DB::table("contact_entreprise")->where("id", $id)->update([
-            "verifier" => $verifier
-        ]);
+        DB::delete('delete from contact_entreprise where id = ? ', [$id]);
+
+        return redirect(route('afficherInscriptions'));
     }
 
     public function valider($id){
-        $verifier = 1;
+        $valider = 1;
         DB::table("contact_entreprise")->where("id", $id)->update([
-            "verifier" => $verifier
+            "valider" => $valider
         ]);
+
+        return redirect(route('afficherInscriptions'));
 
     }
 
