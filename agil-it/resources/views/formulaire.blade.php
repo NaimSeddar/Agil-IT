@@ -299,8 +299,14 @@
 
         <br>
 
-        <label for="contactUrgence">Personne à contacter en cas d'urgence: </label>
-        <select class="form-control col-md-4">
+        <label for="nomContact">Nom du contact d'urgence: </label>
+        <select class="form-control col-md-4" id="nomContact">
+        </select>
+
+        <br>
+
+        <label for="prenomContact">Prenom du contact d'urgence: </label>
+        <select class="form-control col-md-4" id="nomContact">
         </select>
 
         <br>
@@ -364,8 +370,8 @@
         <br>
 
         <label for="NumTelPlateau">Numéro de tel (sur le plateau): </label>
-        <select class="form-control col-md-4" id="NumTelPlateau">
-        </select>
+        <input type="tel" class="form-control col-md-4" id="NumTelPlateau">
+
 
         <br>
 
