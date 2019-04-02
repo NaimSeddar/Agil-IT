@@ -19,12 +19,12 @@ class FormulaireController extends Controller
             'nomNaissance' => ['required'],
             'nom' => ['required'],
             'prenom' => ['required'],
-            'dateNaissance' => ['required', 'date'],
+            'dateNaissance' => ['required', 'date','before:today'],
             'nationalite' => ['required'],
 
-            'mailPro' => ['required'],
+            'mailPro' => ['required','unique:contact_entreprise'],
             'NumTelPerso' => ['required'],
-            'mailPerso' => ['required'],
+            'mailPerso' => ['required','unique:contact_entreprise'],
 
             'nomContact' => ['required'],
             'prenomContact' => ['required'],
@@ -34,7 +34,7 @@ class FormulaireController extends Controller
             'categEmployeur' => ['required'],
             'nomEmployeur' => ['required'],
             'debutContrat' => ['required', 'date'],
-            'finContrat' => ['required', 'date'],
+            'finContrat' => ['required', 'date','after:debutContrat'],
             'entreprise' => ['required'],
             'Bureau' => ['required'],
             'NumTelPlateau' => ['required'],
@@ -66,8 +66,8 @@ class FormulaireController extends Controller
 
 
         $contactPresent = DB::table('contact_entreprise')
-            ->where('nom','\''.$input['nom'].'\'')
-            ->where('prenom','\''.$input['prenom'].'\'')
+            ->where('nom',$input['nom'])
+            ->where('prenom',$input['prenom'])
             ->count();
 
 
@@ -94,24 +94,24 @@ class FormulaireController extends Controller
             // $data = array();
 
             $values = [
-                'nomNaissance' => '\'' . $input['nomNaissance'] . '\'',
-                'nom' => '\'' . $input['nom'] . '\'',
-                'prenom' => '\'' . $input['prenom'] . '\'',
+                'nomNaissance' =>  $input['nomNaissance'] ,
+                'nom' =>  $input['nom'] ,
+                'prenom' =>  $input['prenom'] ,
                 'dateNaissance' => $input['dateNaissance'],
-                'mailPro' => '\'' . $input['mailPro'] . '\'',
-                'mailPerso' => '\'' . $input['mailPerso'] . '\'',
-                'telephone' => '\'' . $input['NumTelPerso'] . '\'',
-                'civilite' => '\'' . $input['civilite'] . '\'',
-                'nationalite' => '\'' . $input['nationalite'] . '\'',
-                'statusEntreprise' => '\'' . $input['statut'] . '\'',
-                'categEmployeur' => '\'' . $input['categEmployeur'] . '\'',
+                'mailPro' =>  $input['mailPro'] ,
+                'mailPerso' => $input['mailPerso'] ,
+                'telephone' =>  $input['NumTelPerso'],
+                'civilite' =>  $input['civilite'],
+                'nationalite' => $input['nationalite'] ,
+                'statusEntreprise' => $input['statut'] ,
+                'categEmployeur' => $input['categEmployeur'] ,
                 'idPersContact' => $contactId->id,
                 'idEntreprise' => $entrepriseId->id,
-                'typeContrat' => '\'' . $typeContrat . '\'',
+                'typeContrat' =>  $typeContrat ,
                 'dateDebutContrat' => $input['debutContrat'],
                 'dateFinContrat' => $input['finContrat'],
-                'Bureau' => '\'' . $input['Bureau'] . '\'',
-                'telBureau' => '\'' . $input['NumTelPlateau'] . '\'',
+                'Bureau' =>  $input['Bureau'] ,
+                'telBureau' => $input['NumTelPlateau'] ,
                 'valider' => 0,
             ];
             //$data = $values;
