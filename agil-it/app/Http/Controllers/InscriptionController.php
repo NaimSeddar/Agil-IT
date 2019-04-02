@@ -20,4 +20,21 @@ class InscriptionController extends Controller
         return view('inscription/inscriptions', ['inscriptions' => $inscriptions]);
     }
 
+
+    public function devalider($id)
+    {
+        $verifier = 0;
+        DB::table("contact_entreprise")->where("id", $id)->update([
+            "verifier" => $verifier
+        ]);
+    }
+
+    public function valider($id){
+        $verifier = 1;
+        DB::table("contact_entreprise")->where("id", $id)->update([
+            "verifier" => $verifier
+        ]);
+
+    }
+
 }
