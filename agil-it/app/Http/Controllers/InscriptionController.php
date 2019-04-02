@@ -18,8 +18,18 @@ class InscriptionController extends Controller
     {
         $inscriptions = DB::table('contact_entreprise')->get();
         return view('inscription/inscriptions', ['inscriptions' => $inscriptions]);
+    }
 
+    public function afficherLesEntreprises()
+    {
+        $entreprises = DB::table('entreprise')->get();
+        return view('inscription/entreprise', ['entreprises' => $entreprises]);
+    }
 
+    public function devaliderEntreprise($id){
+        DB::delete('delete from entreprise where id = ?', [$id]);
+
+        return redirect(route('afficherLesEntreprises'));
     }
 
 
@@ -28,6 +38,16 @@ class InscriptionController extends Controller
         DB::delete('delete from contact_entreprise where id = ? ', [$id]);
 
         return redirect(route('afficherInscriptions'));
+    }
+
+    public function validerEntreprise($id){
+        $valider = 1;
+        DB::table("entreprise")->where("id", $id)->update([
+            "valider" => $valider
+        ]);
+
+        return redirect(route('afficherLesEntreprises'));
+
     }
 
     public function valider($id){

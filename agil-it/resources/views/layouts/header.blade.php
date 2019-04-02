@@ -6,9 +6,20 @@
     </a>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{route('afficherInscriptions')}}">Tableau de bord</a>
+                <a class="nav-link" href="{{route('afficherInscriptions')}}">Contacts</a>
             </li>
         </ul>
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('afficherLesEntreprises')}}">Entreprises</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('formulaireEntreprise')}}">Créer une entreprise</a>
+        </li>
+    </ul>
     @guest
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
