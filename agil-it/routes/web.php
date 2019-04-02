@@ -11,7 +11,7 @@
 |
 */
 
-Route::auth();
+Auth::routes();
 
 Route::get('/formulaire', 'FormulaireController@index')->name('formulaire');
 
