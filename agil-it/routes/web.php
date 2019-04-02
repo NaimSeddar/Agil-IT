@@ -23,3 +23,5 @@ Route::get('/', 'AccueilController@index')->name('welcome');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/contacts','InscriptionController@afficherInscriptions')->name('afficherInscriptions');
