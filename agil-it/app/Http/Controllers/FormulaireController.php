@@ -73,8 +73,8 @@ class FormulaireController extends Controller
             ]);
         }
 
-        $contactId = DB::table('personnesPrevenirEnCasUrgence')->select('id')->where('nom',$input['nomContact'])->limit(1);
-        $entrepriseId = DB::table('entreprise')->select('id')->where('nom',$input['entreprise'])->limit(1);
+        $contactId = DB::table('personnesPrevenirEnCasUrgence')->where('nom',$input['nomContact'])->first();
+        $entrepriseId = DB::table('entreprise')->where('nom',$input['entreprise'])->first();
         $typeContrat = null;
 
         if(isset($input['finContrat'])){
@@ -97,13 +97,13 @@ class FormulaireController extends Controller
             'nationalite' => '\''.$input['nationalite'].'\'',
             'statusEntreprise' => '\''.$input['statut'].'\'',
             'categEmployeur' => '\''.$input['categEmployeur'].'\'',
-            'idPersContact' => 1,
-            'idEntreprise' => 1,
+            'idPersContact' => $contactId->id,
+            'idEntreprise' => $entrepriseId->id,
             'typeContrat' => '\''.$typeContrat.'\'',
             'dateDebutContrat' => $input['debutContrat'],
             'dateFinContrat' => $input['finContrat'],
             'Bureau' => '\''.$input['Bureau'].'\'',
-            'telBureau' => $input['NumTelPlateau'],
+            'telBureau' => '\''.$input['NumTelPlateau'].'\'',
             'valider' => 0,
             ];
         //$data = $values;

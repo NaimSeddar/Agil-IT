@@ -346,7 +346,7 @@
 
         <br>
 
-        <label for="finContrat">Date de début de contrat: (Ne pas renseigner si CDI) </label>
+        <label for="finContrat">Date de fin de contrat: (Ne pas renseigner si CDI) </label>
         <input type="date" class="form-control col-md-4" id="finContrat" name="finContrat">
 
         <br>
