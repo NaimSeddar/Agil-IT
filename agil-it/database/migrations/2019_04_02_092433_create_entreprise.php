@@ -18,10 +18,8 @@ class CreateEntreprise extends Migration
             $table->string('nom');
             $table->string('nomPDG');
             $table->string('siret');
-            $table->string('sitePrincipal');
-            $table->string('batimentPrincipal');
-            $table->string('bureau');
-            $table->string('telephone');
+            $table->string('siteP');
+            $table->string('batimentP');
             $table->timestamps();
 
         });

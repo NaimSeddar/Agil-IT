@@ -15,6 +15,8 @@ Route::auth();
 
 Route::get('/formulaire', 'FormulaireController@index')->name('formulaire');
 
+Route::get('/entreprise/create','EntrepriseController@createEntreprise')->name('formulaireEntreprise');
+Route::post('/entreprise/enregistrer','EntrepriseController@enregistrerEntreprise')->name('enregistrerEntreprise');
 Route::get('/', 'AccueilController@index')->name('welcome');
 
 Route::post('/send', 'FormulaireController@send')->name('send');
