@@ -45,3 +45,8 @@
 .rawText{
     margin-left: 25px;
 }
+
+.nav-item {
+    font-weight: 700;
+    color: #222222;
+}
