@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Univers7') }}</title>
+    <title>Agil'IT - IUT de Lens</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
