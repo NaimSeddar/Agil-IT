@@ -16,3 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/formulaire', 'FormulaireController@index')->name('formulaire');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
