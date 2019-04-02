@@ -9,4 +9,25 @@
 
 .title {
     color: white;
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+}
+
+.title h1 {
+    margin-top: 20px;
+}
+
+.title button {
+    margin-bottom: 20px;
+}
+
+.btn {
+    color: white;
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
 }

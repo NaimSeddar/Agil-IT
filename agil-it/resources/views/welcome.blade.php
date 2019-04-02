@@ -8,8 +8,9 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center title">
-                    <h1 class="font-weight-light">Vertically Centered Masthead Content</h1>
-                    <p class="lead">A great starter layout for a landing page</p>
+                    <h1 class="font-weight-light">Bienvenue sur notre plateau de Coopwork !</h1>
+                    <p class="lead">Un espace de travail partagé, ouvert à tous pour développer des projets et emplois.</p>
+                    <button type="button" class="btn btn-lg">Je m'inscris !</button>
                 </div>
             </div>
         </div>
