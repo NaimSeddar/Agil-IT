@@ -5,6 +5,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    font-weight: 600;
 }
 
 .title {
@@ -16,7 +17,7 @@
     margin-top: 20px;
 }
 
-.title button {
+.title a {
     margin-bottom: 20px;
 }
 
@@ -30,4 +31,13 @@
     background-color: white;
     color: black;
     border: 1px solid black;
+}
+
+.chevron_down {
+    text-align: center;
+    color: white;
+}
+
+.rawText{
+    margin-left: 25px;
 }
