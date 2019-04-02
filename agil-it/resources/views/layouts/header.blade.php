@@ -13,7 +13,7 @@
         @else
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-item" href="{{route('logout')}}"
+                <a class="nav-link" href="{{route('logout')}}"
                    onclick="event.preventDefault();document.getElementById('logout-form').submit()">Déconnexion</a>
             </li>
             <form action="{{route('logout')}}" method="post" style="display: none;" id="logout-form">@csrf</form>
