@@ -14,9 +14,6 @@
 
 Route::get('/formulaire', 'FormulaireController@index')->name('formulaire');
 
-
-Auth::routes();
-
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'AccueilController@index')->name('welcome');
 
 Route::post('/send', 'FormulaireController@send')->name('send');

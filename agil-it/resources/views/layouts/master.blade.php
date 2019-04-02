@@ -13,8 +13,7 @@
 </head>
 <body>
 @include('layouts.header')
-<div class="mt-5">
-    <br>
+<div>
     @yield('content')
 </div>
 
