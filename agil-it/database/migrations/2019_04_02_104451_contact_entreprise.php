@@ -33,6 +33,7 @@ class ContactEntreprise extends Migration
             $table->string('dateFinContrat');
             $table->string('Bureau');
             $table->string('telBureau');
+            $table->boolean('valider');
             $table->timestamps();
 
         });

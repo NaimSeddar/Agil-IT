@@ -101,6 +101,7 @@ class FormulaireController extends Controller
             'dateFinContrat' => $input['finContrat'],
             'Bureau' => $input['Bureau'],
             'telBureau' => $input['NumTelPlateau'],
+            'valider' => false,
         ]);
     }
 }

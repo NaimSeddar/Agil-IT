@@ -4,7 +4,8 @@
 
 
     <h1>FORMULAIRE D'ENREGISTREMENT</h1>
-    <form action="{{route('send')}}">
+    <form method='POST' action="{{route('send')}}">
+        {!! csrf_field() !!}
 
         <h2>Identité</h2>
 
@@ -363,6 +364,8 @@
 
 
         <br>
+
+        <button type="submit" class="col-lg-4 btn btn-success">Envoyer</button>
 
 
     </form>
