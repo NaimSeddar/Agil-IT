@@ -33,7 +33,8 @@ class EntrepriseController extends Controller
             "siret" => $input["siret"],
             "nomPDG" => $input["nomPDG"],
             "siteP" => $input["siteP"],
-            "batimentP" => $input["batimentP"]
+            "batimentP" => $input["batimentP"],
+            'valider' => 0
 
         ]);
 
