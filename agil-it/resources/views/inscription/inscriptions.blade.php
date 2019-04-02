@@ -8,7 +8,7 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-12">
-                <h1 class="mt-4">Tableau de bord</h1>
+                <h1 class="mt-4">Les contacts</h1>
             </div>
         </div>
 
@@ -25,16 +25,18 @@
                         <strong><p class="card-title text-center"> Fin Contrat : {{$inscription->dateFinContrat}}</p> </strong>
                         <strong><p class="card-title text-center"> {{$inscription->Bureau}}</p> </strong>
 
-                        @auth
+
                         @if($inscription->valider == 0)
-
                             <p> En attente de validation</p>
+                            @auth
                             <a href="{{route('validerContact',[$inscription->id])}}"><button class="btn-success mb-2">Valider</button></a><br>
-                        @else
-
-                        <a href="{{route('devaliderContact',[$inscription->id])}}"><button class="btn-danger mb-2">Supprimer</button></a><br>
-                        @endif
                         @endauth
+                            @else
+                        @auth
+                        <a href="{{route('devaliderContact',[$inscription->id])}}"><button class="btn-danger mb-2">Supprimer</button></a><br>
+                        @endauth
+                        @endif
+
                     </div>
                 </div>
             @endforeach
