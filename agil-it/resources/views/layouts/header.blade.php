@@ -1,7 +1,7 @@
 <!-- Image and text -->
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="{{ route('welcome') }}">
-        <img src="/public/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="{{asset('images/logo.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
         Univers7
     </a>
         <ul class="navbar-nav ml-auto">
