@@ -9,4 +9,8 @@ class FormulaireController extends Controller
     function index(){
         return view('formulaire');
     }
+
+    function send(){
+        return;
+    }
 }
