@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 class FormulaireController extends Controller
 {
     function index(){
-        return view('formulaire');
+
+        $entreprise = DB::table('entreprise')->pluck('nom');
+        return view('formulaire',['entreprises' => $entreprise]);
     }
 
     function send(Request $request){
@@ -33,8 +35,6 @@ class FormulaireController extends Controller
             'debutContrat' => ['required','date'],
             'finContrat' => ['required', 'date', 'after:debutContrat'],
             'entreprise' => ['required'],
-            'sitePrincipal' =>['required'],
-            'BatimentPrincipal' => ['required'],
             'Bureau' => ['required'],
             'NumTelPlateau' => ['required', 'string', 'max:100'],
         ]);
@@ -59,10 +59,48 @@ class FormulaireController extends Controller
                 "debutContrat",
                 "finContrat",
                 "entreprise",
-                "sitePrincipal",
-                "BatimentPrincipal",
                 "Bureau",
                 "NumTelPlateau",
             ]);
+
+        $contact = DB::table('personnesPrevenirEnCasUrgence')->where('nom',$input["nomContact"])->count();
+        if($contact == 0){
+            DB::table('personnesPrevenirEnCasUrgence')->insert([
+                'nom' => $input['nomContact'],
+                'prenom' => $input['prenomContact'],
+                'numeroTelephone' => $input['telContact']
+            ]);
+        }
+
+        $contactId = DB::table('personnesPrevenirEnCasUrgence')->select('id')->where('nom',$input['nomContact'])->first();
+        $entrepriseId = DB::table('entreprise')->select('id')->where('nom',$input['entreprise'])->first();
+        $typeContrat = null;
+
+        if(isset($input['finContrat'])){
+            $typeContrat = "CDD";
+        }else{
+            $typeContrat = "CDI";
+        }
+
+        DB::table('contact_entreprise')->insert([
+            'nomNaissance' => $input['nomNaissance'],
+            'nom' => $input['nom'],
+            'prenom' => $input['prenom'],
+            'dateNaissance' => $input['dateNaissance'],
+            'mailPro' => $input['mailPro'],
+            'mailPerso' => $input['mailPerso'],
+            'telephone' => $input['NumTelPerso'],
+            'civilite' => $input['civilite'],
+            'nationalite' => $input['nationalite'],
+            'statusEntreprise' => $input['status'],
+            'categEmployeur' => $input['categEmployeur'],
+            'idPersContact' => $contactId,
+            'idEntreprise' => $entrepriseId,
+            'typeContrat' => $typeContrat,
+            'dateDebutContrat' => $input['debutContrat'],
+            'dateFinContrat' => $input['finContrat'],
+            'Bureau' => $input['Bureau'],
+            'telBureau' => $input['NumTelPlateau'],
+        ]);
     }
 }

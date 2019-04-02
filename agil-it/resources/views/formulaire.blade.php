@@ -300,14 +300,12 @@
         <br>
 
         <label for="nomContact">Nom du contact d'urgence: </label>
-        <select class="form-control col-md-4" id="nomContact">
-        </select>
+        <input type="text" class="form-control col-md-4" id="nomContact">
 
         <br>
 
         <label for="prenomContact">Prenom du contact d'urgence: </label>
-        <select class="form-control col-md-4" id="nomContact">
-        </select>
+        <input type="text" class="form-control col-md-4" id="prenomContact">
 
         <br>
 
@@ -344,28 +342,19 @@
         <br>
 
         <label for="entreprise">Entreprise ou équipe: </label>
-        <select class="form-control col-md-4">
+        <select class="form-control col-md-4" id="entreprise">
+            @foreach($entreprises as $entreprise)
+                <option value="{{$entreprise}}">{{$entreprise}}</option>
+            @endforeach
         </select>
 
         <br>
 
         <h2>Informations de localisation</h2>
 
-        <label for="sitePrincipal">Site principal: </label>
-        <select class="form-control col-md-4" id="sitePrincipal">
-        </select>
-
-        <br>
-
-        <label for="BatimentPrincipal">Batiment principal: </label>
-        <select class="form-control col-md-4" id="BatimentPrincipal">
-        </select>
-
-        <br>
 
         <label for="Bureau">Bureau (sur le plateau): </label>
-        <select class="form-control col-md-4" id="Bureau">
-        </select>
+        <input type="text" class="form-control col-md-4" id="Bureau">
 
         <br>
 

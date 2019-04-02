@@ -26,11 +26,13 @@ class ContactEntreprise extends Migration
             $table->string('nationalite');
             $table->string('statusEntreprise');
             $table->string('categEmployeur');
-            $table->string('idPersContact');
+            $table->integer('idPersContact');
             $table->integer('idEntreprise');
             $table->string('typeContrat');
             $table->string('dateDebutContrat');
             $table->string('dateFinContrat');
+            $table->string('Bureau');
+            $table->string('telBureau');
             $table->timestamps();
 
         });
