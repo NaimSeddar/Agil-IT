@@ -9,6 +9,9 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="mt-4">Les contacts</h1>
+                @guest
+                    <a role="button" class="btn btn-lg" id="inscrire" href="{{ route('formulaire') }}">M'inscrire !</a>
+                @endguest
             </div>
         </div>
 

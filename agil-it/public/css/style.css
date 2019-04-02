@@ -1,0 +1,14 @@
+#inscrire:hover {
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 0px 0px 16px 0px rgba(255,255,255,0.75);
+    color: black;
+}
+
+#inscrire {
+    background-color: black;
+    color: white;
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+    margin: 15px;
+    margin-top: 0;
+
+}
